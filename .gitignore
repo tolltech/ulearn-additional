@@ -1,0 +1,9 @@
+/.vs/*
+/*/bin/*
+/*/obj/*
+/packages/*
+/*.DotSettings.user
+/*/.vs/*
+*.DotSettings.user
+/*/*/bin/*
+/*/*/obj/*
