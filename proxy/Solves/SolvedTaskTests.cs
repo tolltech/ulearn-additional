@@ -6,7 +6,7 @@ namespace Solves
 {
     [TestFixture]
     [Parallelizable(ParallelScope.None)]
-    public class SolvedTaskTests : StudentTaskTests
+    public class SolvedTaskTests : ZooTests
     {
         protected override void Setup()
         {

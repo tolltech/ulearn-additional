@@ -10,7 +10,16 @@ namespace Solves
     {
         public IZoo CreateZoo()
         {
-            var lazyBones = Proxy.CreateProxy<Lazybones>(invocation =>
+            var lazyBones = CreateAnimal<Lazybones>();
+            var elephant = CreateAnimal<Elephant>();
+            var monkey = CreateAnimal<Monkey>();
+            var animals = new [] {lazyBones, elephant, monkey}.ToArray();
+            return new Zoo(animals);
+        }
+
+        private static Animal CreateAnimal<T>() where T : Animal
+        {
+            return Proxy.CreateProxy<T>(invocation =>
             {
                 var stopwatch = new Stopwatch();
 
@@ -21,13 +30,13 @@ namespace Solves
                 var method = invocation.Method;
                 var arguments = invocation.Arguments;
                 var spentMilliseconds = (int) stopwatch.ElapsedMilliseconds;
+
                 Tracer.LogTrace(
-                    $"{method?.DeclaringType?.Name} {method?.Name} {arguments.FirstOrDefault()} milliseconds",
+                    $"{method?.DeclaringType?.Name} {method?.Name} {arguments.FirstOrDefault()} milliseconds and have made some {result.Result}",
                     spentMilliseconds);
+
                 return result;
             });
-            var animals = new []{lazyBones}.Cast<Animal>().ToArray();
-            return new Zoo(animals);
         }
     }
 }

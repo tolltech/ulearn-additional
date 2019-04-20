@@ -1,4 +1,5 @@
-﻿using Task.DontChange;
+﻿using System.Linq;
+using Task.DontChange;
 
 namespace Task
 {
@@ -6,7 +7,7 @@ namespace Task
     {
         public IZoo CreateZoo()
         {
-            var animals = new[] {new Lazybones()};
+            var animals = new Animal[] {new Lazybones(), new Elephant(), new Monkey()}.ToArray();
             return new Zoo(animals);
         }
     }
