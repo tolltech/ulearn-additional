@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using NUnit.Framework;
 
-namespace Task
+namespace Tasks
 {
     public class StudentTaskTests : TestBase
     {

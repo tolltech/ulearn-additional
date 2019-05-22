@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using Task;
+using Tasks;
 
 namespace Solves
 {

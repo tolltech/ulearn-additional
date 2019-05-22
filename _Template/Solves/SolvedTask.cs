@@ -1,4 +1,4 @@
-﻿using Task;
+﻿using Tasks;
 
 namespace Solves
 {

@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ulearn-additional", "ulearn
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Template", "_Template", "{E51D5B1C-26A0-477F-AFC6-BFADB24329C1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task", "_Template\Task\Task.csproj", "{ED15FD37-BEF6-4731-AA26-13B50C85FD1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks", "_Template\Task\Tasks.csproj", "{ED15FD37-BEF6-4731-AA26-13B50C85FD1B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solves", "_Template\Solves\Solves.csproj", "{489C528E-D7C3-42B7-9047-D609FFAB8498}"
 EndProject

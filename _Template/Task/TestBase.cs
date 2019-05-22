@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace Task
+namespace Tasks
 {
     [TestFixture]
     public class TestBase
