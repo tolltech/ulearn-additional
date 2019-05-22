@@ -4,6 +4,10 @@ namespace EncapsulationTask
 {
     public class LogicStringBuilder : ILogicStringBuilder
     {
+        //Представьте, что вам понадобился логинческий стрингбилдер,
+        //который умеет добавлять строки в конец только при выоплнении каких-то условий
+        //можно усложнить методами типа And() Or() и их комбинациями
+        //постарайтесь использовать меньше памяти
         public LogicStringBuilder(string str)
         {
             

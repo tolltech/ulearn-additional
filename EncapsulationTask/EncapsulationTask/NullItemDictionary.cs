@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace EncapsulationTask
 {
+    //Иногда может потребоваться хранить в словаре значения с ключом NULL и безопасно доставать значения по несуществующему ключу
+    //Ваша задача - максимально использовать функциональность существующего Dictionary, вплоть до отказа от делегирования
+    //В авторском решении только один класс и два метода
     public class NullItemDictionary<TKey, TValue> : IDictionary<TKey, TValue>
     {
         public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator()

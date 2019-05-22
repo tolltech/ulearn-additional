@@ -57,10 +57,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions.cs" />
-    <Compile Include="SolvedClasses\RightGreatClass.cs" />
+    <Compile Include="SolvedClasses\SolvedCustomConvert.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SolvedClasses\RightDescriptor.cs" />
-    <Compile Include="SolvedClasses\RightMatrixInvoker.cs" />
     <Compile Include="SolvedTests\SolvedDescriptorTest.cs" />
     <Compile Include="SolvedTests\SolvedStringifyTest.cs" />
   </ItemGroup>
@@ -72,10 +71,6 @@
     <ProjectReference Include="..\Documentation\Documentation.csproj">
       <Project>{e147abfb-d6d4-40e7-a964-f0c43679d490}</Project>
       <Name>Documentation</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Invoking\Invoking.csproj">
-      <Project>{c4a3f591-e228-4522-9720-160ec4534825}</Project>
-      <Name>Invoking</Name>
     </ProjectReference>
     <ProjectReference Include="..\Stringify\Stringify.csproj">
       <Project>{f316d94c-ab04-4349-98e0-dc3b3d46f256}</Project>

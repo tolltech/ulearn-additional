@@ -1,22 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 
 namespace Stringify
 {
-    public class CustomConvert
+    public class SolvedCustomConvert : CustomConvert
     {
-        // В языке программирования Python существует функция dir(), возвращающая список компонент указанного объекта.
-        //Т.е., вызвав, например, dir(math), мы получим имена полей и методов класса math.
-        //    Используя рефлексию, попробуйте сделать утилиту, работающую похожим образом - принимая на вход имя типа, программа должна
-        //выводить строку, описывающую объект (список его конструкторов, полей, методов...)
-
-        public virtual string Serialize<T>(T serializedObject)
+        public override string Serialize<T>(T serializedObject)
         {
             var type = serializedObject.GetType();
             var stringBuilder = new StringBuilder();
-
+            
             stringBuilder.Append($"{type.Name}:\r\n\r\n");
             stringBuilder.Append(GetConstructorsInfo(type));
             stringBuilder.Append(SerializeProperties(type));
@@ -36,8 +32,7 @@ namespace Stringify
         {
             var formattedPublicFields = FormatMemberOutput(GetFieldsInfo(type, BindingFlags.Public));
             var formattedPrivateFields = FormatMemberOutput(GetFieldsInfo(type, BindingFlags.NonPublic));
-            var formattedStaticFields =
-                FormatStaticMemberOutput(GetStaticFieldsInfo(type, BindingFlags.Static | BindingFlags.Public));
+            var formattedStaticFields = FormatStaticMemberOutput(GetStaticFieldsInfo(type, BindingFlags.Static | BindingFlags.Public));
 
             return $"{BindingFlags.Public} fields:\r\n{formattedPublicFields}" +
                    $"{BindingFlags.NonPublic} fields:\r\n{formattedPrivateFields}" +
@@ -60,44 +55,51 @@ namespace Stringify
             {
                 stringBuilder.Append($"{memberType} {memberName}\r\n");
             }
-
             return stringBuilder.Append("\r\n").ToString();
         }
 
-        private static string FormatStaticMemberOutput(
-            IEnumerable<(string MemberType, string MemberName, string MemberValue)> memberInfos)
+        private static string FormatStaticMemberOutput(IEnumerable<(string MemberType, string MemberName, string MemberValue)> memberInfos)
         {
             var stringBuilder = new StringBuilder();
             foreach (var (memberType, memberName, memberValue) in memberInfos)
             {
                 stringBuilder.Append($"{memberType} {memberName}: {memberValue}\r\n");
             }
-
             return stringBuilder.Append("\r\n").ToString();
         }
 
         private static string GetConstructorsInfo(Type type)
         {
-            throw new NotImplementedException();        }
+            return $"Constructors count: {type.GetConstructors().Length}\r\n" +
+                   $"Has parameterless constructor: {type.GetConstructor(Type.EmptyTypes) != null}\r\n\r\n";
+        }
 
         private static (string MemberType, string MemberName)[] GetPropertiesInfo(Type type)
         {
-            throw new NotImplementedException();
+            return type.GetProperties()
+                .Select(p => (MemberType: p.PropertyType.ToString(), MemberName: p.Name))
+                .ToArray();
         }
 
         private static (string MemberType, string MemberName)[] GetFieldsInfo(Type type, BindingFlags scope)
         {
-            throw new NotImplementedException();
+            return type.GetFields(BindingFlags.Instance | scope)
+                .Select(f => (MemberType: f.FieldType.ToString(), MemberName: f.Name))
+                .ToArray();
         }
 
         private static (string MemberType, string MemberName, string MemberValue)[] GetStaticFieldsInfo(Type type, BindingFlags scope)
         {
-            throw new NotImplementedException();
+            return type.GetFields(scope)
+                .Select(f => (MemberType: f.FieldType.ToString(), MemberName: f.Name, MemberValue: f.GetValue(null).ToString()))
+                .ToArray();
         }
 
         private static (string MemberType, string MemberName)[] GetMethodsInfo(Type type, BindingFlags scope)
         {
-            throw new NotImplementedException();
+            return type.GetMethods(BindingFlags.Instance | scope)
+                .Select(m => (MemberType: m.ReturnType.Name, MemberName: m.Name))
+                .ToArray();
         }
     }
 }

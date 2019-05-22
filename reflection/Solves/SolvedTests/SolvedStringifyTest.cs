@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using Solves.SolvedClasses;
 using Stringify;
 
 namespace Solves.SolvedTests
@@ -9,7 +8,8 @@ namespace Solves.SolvedTests
     {
         protected override void SetUp()
         {
-            greatClass = new RightGreatClass();
+            base.SetUp();
+            customConvert = new SolvedCustomConvert();
         }
     }
 }

@@ -2,6 +2,10 @@
 {
     public class KeyValueStorageClient : IKeyValueStorageClient
     {
+        //попробуйте реализовать сетевое key-value хранилище 
+        //хорошо, что сервер уже написан за вас!
+        //более подробное описание АПИ можно найти по этому адресу http://musync.ru/study/help
+        //если апи не работает, напишите на alexandrovpe@gmail.com
         public bool Ping()
         {
             throw new System.NotImplementedException();
