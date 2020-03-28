@@ -13,6 +13,5 @@ namespace Solves
             Tracer.Clear();
             zooFactory = new SolvedZooFactory();
         }
-
     }
 }
