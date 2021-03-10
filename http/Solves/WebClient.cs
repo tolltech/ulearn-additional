@@ -36,7 +36,8 @@ namespace Solves
                     strBody = JsonConvert.SerializeObject(body);
                 }
 
-                var response = client.UploadString(GetUrl(urlPart, queryParamns), strBody);
+                var url = GetUrl(urlPart, queryParamns);
+                var response = client.UploadString(url, strBody);
                 return JsonConvert.DeserializeObject<TResult>(response);
             }
         }

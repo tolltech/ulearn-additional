@@ -130,7 +130,7 @@ namespace EncapsulationTask
             var response = ex.Response as HttpWebResponse;
             response.Should().NotBeNull();
             response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-            GetBody(response).Should().Be($"Key {kv.Key} is already presented in store.");
+            response.StatusDescription.Should().Be($"Key {kv.Key} is already presented in store.");
         }
 
         private static string GetBody(HttpWebResponse response)

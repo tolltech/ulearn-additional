@@ -10,7 +10,7 @@ namespace Solves
 
         public SolvedKeyValueStorage()
         {
-            webClient = new WebClient("http://musync.ru/study");
+            webClient = new WebClient("https://tolltech.ru/study");
         }
 
         public bool Ping()
