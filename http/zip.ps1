@@ -1,0 +1,1 @@
+Compress-Archive -Path HttpTask.sln, ./HttpTask/, ./packages/, ./Properties, App.config -DestinationPath HttpTask.zip
