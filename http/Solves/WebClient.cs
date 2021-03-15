@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Net;
 using Newtonsoft.Json;
 
 namespace Solves
@@ -26,7 +28,8 @@ namespace Solves
             SendGet<object>(urlPart, queryParamns);
         }
 
-        public TResult SendPost<TBody, TResult>(string urlPart, TBody body, params (string ParamName, string ParamValue)[] queryParamns)
+        public TResult SendPost<TBody, TResult>(string urlPart, TBody body,
+            params (string ParamName, string ParamValue)[] queryParamns)
         {
             using (var client = new System.Net.WebClient())
             {
@@ -37,7 +40,17 @@ namespace Solves
                 }
 
                 var url = GetUrl(urlPart, queryParamns);
-                var response = client.UploadString(url, strBody);
+                string response;
+                try
+                {
+                    response = client.UploadString(url, strBody);
+                }
+                catch (WebException e)
+                {
+                    var exceptionResponse = e.Response as HttpWebResponse;
+                    throw new Exception(exceptionResponse.StatusDescription);
+                }
+
                 return JsonConvert.DeserializeObject<TResult>(response);
             }
         }

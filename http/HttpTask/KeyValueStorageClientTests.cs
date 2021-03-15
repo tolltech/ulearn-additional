@@ -126,11 +126,10 @@ namespace EncapsulationTask
             };
 
             client.Create(kv);
-            var ex = Assert.Throws<WebException>(()=>client.Create(kv));
-            var response = ex.Response as HttpWebResponse;
-            response.Should().NotBeNull();
-            response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-            response.StatusDescription.Should().Be($"Key {kv.Key} is already presented in store.");
+            var ex = Assert.Throws<Exception>(()=>client.Create(kv));
+            var message = ex.Message;
+            message.Should().NotBeNull();
+            message.Should().Be($"Key {kv.Key} is already presented in store.");
         }
 
         private static string GetBody(HttpWebResponse response)
