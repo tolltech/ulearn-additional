@@ -40,9 +40,7 @@ namespace Task
 
         private static void Swap<T>(ref T firstElement, ref T secondElement)
         {
-            var temp = firstElement;
-            firstElement = secondElement;
-            secondElement = temp;
+            (firstElement, secondElement) = (secondElement, firstElement);
         }
     }
 }

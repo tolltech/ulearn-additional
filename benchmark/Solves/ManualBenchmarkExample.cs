@@ -32,7 +32,7 @@ namespace Solves
             stopwatch.Stop();
             Console.WriteLine($"{nameof(TestSum)}\t{stopwatch.ElapsedTicks} ticks");
         }
-        
+
         public int TestSum()
         {
             return Enumerable.Range(1, 10000).Sum();
