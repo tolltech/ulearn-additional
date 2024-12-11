@@ -1,9 +1,11 @@
 /.vs/*
+/.idea/*
 /*/bin/*
 /*/obj/*
 /packages/*
 /*.DotSettings.user
 /*/.vs/*
+/*/.idea/*
 *.DotSettings.user
 /*/*/bin/*
 /*/*/obj/*
