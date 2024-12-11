@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncapsulationTask_old", "En
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solves_old", "Solves_old\Solves_old.csproj", "{238B796F-4829-48F5-B116-112D8DFEA02F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncapsulationTask", "EncapsulationTask\EncapsulationTask.csproj", "{D7D2C5CF-7CD6-43CE-AF3A-155D9C826F9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solves", "Solves\Solves.csproj", "{3CC89E90-A1C8-4D2F-9575-97B6DB24C93B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{238B796F-4829-48F5-B116-112D8DFEA02F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{238B796F-4829-48F5-B116-112D8DFEA02F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{238B796F-4829-48F5-B116-112D8DFEA02F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7D2C5CF-7CD6-43CE-AF3A-155D9C826F9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7D2C5CF-7CD6-43CE-AF3A-155D9C826F9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7D2C5CF-7CD6-43CE-AF3A-155D9C826F9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7D2C5CF-7CD6-43CE-AF3A-155D9C826F9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CC89E90-A1C8-4D2F-9575-97B6DB24C93B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CC89E90-A1C8-4D2F-9575-97B6DB24C93B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CC89E90-A1C8-4D2F-9575-97B6DB24C93B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CC89E90-A1C8-4D2F-9575-97B6DB24C93B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
