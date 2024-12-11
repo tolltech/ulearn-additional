@@ -1,10 +1,10 @@
-﻿using EncapsulationTask;
+﻿using EncapsulationTask_old;
 using NUnit.Framework;
 
-namespace Solves
+namespace Solves_old
 {
     [TestFixture]
-    public class NullItemDictionaryTests : EncapsulationTask.NullItemDictionaryTests
+    public class NullItemDictionaryTests : EncapsulationTask_old.NullItemDictionaryTests
     {
         protected override void Setup()
         {

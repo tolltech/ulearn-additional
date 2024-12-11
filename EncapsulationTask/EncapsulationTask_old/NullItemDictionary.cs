@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-namespace EncapsulationTask
+namespace EncapsulationTask_old
 {
     //Иногда может потребоваться хранить в словаре значения с ключом NULL и безопасно доставать значения по несуществующему ключу
     //Ваша задача - максимально использовать функциональность существующего Dictionary, вплоть до отказа от делегирования

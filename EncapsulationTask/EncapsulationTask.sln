@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncapsulationTask", "EncapsulationTask\EncapsulationTask.csproj", "{1D4223D1-C264-448B-8E81-D2FB32D1A749}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncapsulationTask_old", "EncapsulationTask_old\EncapsulationTask_old.csproj", "{1D4223D1-C264-448B-8E81-D2FB32D1A749}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solves", "Solves\Solves.csproj", "{238B796F-4829-48F5-B116-112D8DFEA02F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solves_old", "Solves_old\Solves_old.csproj", "{238B796F-4829-48F5-B116-112D8DFEA02F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

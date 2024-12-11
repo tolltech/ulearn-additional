@@ -3,7 +3,7 @@ using System.Linq;
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace EncapsulationTask
+namespace EncapsulationTask_old
 {
     [TestFixture]
     public class NullItemDictionaryTests
