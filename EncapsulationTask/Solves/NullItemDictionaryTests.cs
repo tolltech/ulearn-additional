@@ -1,5 +1,4 @@
-﻿using EncapsulationTask;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace Solves
 {

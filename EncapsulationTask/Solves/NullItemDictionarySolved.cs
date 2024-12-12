@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace EncapsulationTask
+﻿namespace Solves
 {
     public class NullItemDictionarySolved<TKey, TValue> : Dictionary<TKey, TValue>, IDictionary<TKey, TValue>
     {
