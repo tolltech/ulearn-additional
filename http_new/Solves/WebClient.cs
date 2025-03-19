@@ -15,9 +15,9 @@ namespace HttpSolves
         public TResult SendGet<TResult>(string urlPart, params (string ParamName, string ParamValue)[] queryParamns)
         {
             using var client = new HttpClient();
-            var response = client.GetAsync(GetUrl(urlPart, queryParamns)).GetAwaiter().GetResult().Content
-                .ReadAsStringAsync().GetAwaiter().GetResult();
-            return JsonConvert.DeserializeObject<TResult>(response);
+            var response = client.GetAsync(GetUrl(urlPart, queryParamns)).GetAwaiter().GetResult();
+            var responseStr = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+            return JsonConvert.DeserializeObject<TResult>(responseStr);
         }
 
         public void SendGet(string urlPart, params (string ParamName, string ParamValue)[] queryParamns)
@@ -42,7 +42,7 @@ namespace HttpSolves
             {
                 throw new Exception(response.ReasonPhrase);
             }
-            
+
             var responseStr = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
 
             return JsonConvert.DeserializeObject<TResult>(responseStr);

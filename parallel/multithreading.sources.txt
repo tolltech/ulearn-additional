@@ -1,0 +1,5 @@
+http://www.albahari.com/threading/
+
+http://blog.stephencleary.com/2012/02/async-and-await.html
+http://blog.stephencleary.com/2012/07/dont-block-on-async-code.html
+http://blog.stephencleary.com/2013/11/there-is-no-thread.html
