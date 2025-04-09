@@ -1,0 +1,1 @@
+Compress-Archive -Path ReflectionTasks.sln, Documentation/* , Invoking/* , Strignify/* -DestinationPath ReflectionTasks.zip
