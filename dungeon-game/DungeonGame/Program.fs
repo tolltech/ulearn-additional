@@ -179,6 +179,13 @@ let processFrame state adventurerAction =
 
     state
 
+let resetState state =
+    { state with
+        AdventurerBlocks = false
+        AdventurerAttackFactor = Random.Shared.NextDouble() * 1.5 + 1.0
+        AdventurerDodgeSuccessful = Random.Shared.NextDouble() <= 0.6
+        MonsterAttackFactor = Random.Shared.NextDouble() * 1.5 + 1.0 }
+
 let gameLoop adventurer =
     let rec gameLoop state =
         let adventurerAction = readAdventurerActionInput state.Adventurer
@@ -190,9 +197,9 @@ let gameLoop adventurer =
             if state.Monster.Health <= 0 then
                 let monster = getNextMonster ()
                 printMonsterIntroduction state.Adventurer monster
-                gameLoop { state with Monster = monster }
+                gameLoop (resetState { state with Monster = monster })
             else
-                gameLoop state
+                gameLoop (resetState state)
 
     let monster = getNextMonster ()
     printMonsterIntroduction adventurer monster
