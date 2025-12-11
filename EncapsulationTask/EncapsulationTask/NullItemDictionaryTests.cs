@@ -63,6 +63,16 @@ namespace EncapsulationTask
         {
             sut[null].Should().Be(default(string));
         }
+        
+        [Test]
+        public void RequestBySetDefaultValue()
+        {
+            sut[null] = "abc";
+            sut[null].Should().Be("abc");
+            
+            sut.Add(null, "123");
+            sut[null].Should().Be("123");
+        }
 
         [Test]
         public void PositiveTest()
