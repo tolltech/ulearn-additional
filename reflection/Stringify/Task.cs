@@ -76,7 +76,8 @@ namespace Stringify
 
         private static string GetConstructorsInfo(Type type)
         {
-            throw new NotImplementedException();        }
+            throw new NotImplementedException();
+        }
 
         private static (string MemberType, string MemberName)[] GetPropertiesInfo(Type type)
         {
