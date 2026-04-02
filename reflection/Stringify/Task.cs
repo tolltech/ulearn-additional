@@ -1,58 +1,102 @@
-﻿namespace Stringify
+﻿using System.Reflection;
+using System.Text;
+
+namespace Stringify
 {
-    public class Task
+    public class CustomConvert
     {
-        public class GreatClass : IGreatClass
+        // В языке программирования Python существует функция dir(), возвращающая список компонент указанного объекта.
+        //Т.е., вызвав, например, dir(math), мы получим имена полей и методов класса math.
+        //    Используя рефлексию, попробуйте сделать утилиту, работающую похожим образом - принимая на вход имя типа, программа должна
+        //выводить строку, описывающую объект (список его конструкторов, полей, методов...)
+
+        public virtual string Serialize<T>(T serializedObject)
         {
-            private int count;
-            public bool flag;
-            public string Record { get; set; }
-            public int MagicNumber { get; set; }
+            var type = serializedObject.GetType();
+            var stringBuilder = new StringBuilder();
 
-            public GreatClass()
+            stringBuilder.Append($"{type.Name}:\r\n\r\n");
+            stringBuilder.Append(GetConstructorsInfo(type));
+            stringBuilder.Append(SerializeProperties(type));
+            stringBuilder.Append(SerializeFields(type));
+            stringBuilder.Append(SerializeMethods(type));
+
+            return stringBuilder.ToString();
+        }
+
+        private static string SerializeProperties(Type type)
+        {
+            var formattedTypeProperties = FormatMemberOutput(GetPropertiesInfo(type));
+            return $"Properties:\r\n{formattedTypeProperties}";
+        }
+
+        private static string SerializeFields(Type type)
+        {
+            var formattedPublicFields = FormatMemberOutput(GetFieldsInfo(type, BindingFlags.Public));
+            var formattedPrivateFields = FormatMemberOutput(GetFieldsInfo(type, BindingFlags.NonPublic));
+            var formattedStaticFields =
+                FormatStaticMemberOutput(GetStaticFieldsInfo(type, BindingFlags.Static | BindingFlags.Public));
+
+            return $"{BindingFlags.Public} fields:\r\n{formattedPublicFields}" +
+                   $"{BindingFlags.NonPublic} fields:\r\n{formattedPrivateFields}" +
+                   $"{BindingFlags.Static | BindingFlags.Public} fields:\r\n{formattedStaticFields}";
+        }
+
+        private static string SerializeMethods(Type type)
+        {
+            var formattedPublicMethods = FormatMemberOutput(GetMethodsInfo(type, BindingFlags.Public));
+            var formattedPrivateMethods = FormatMemberOutput(GetMethodsInfo(type, BindingFlags.NonPublic));
+
+            return $"{BindingFlags.Public} methods:\r\n{formattedPublicMethods}" +
+                   $"{BindingFlags.NonPublic} methods:\r\n{formattedPrivateMethods}";
+        }
+
+        private static string FormatMemberOutput(IEnumerable<(string MemberType, string MemberName)> memberInfos)
+        {
+            var stringBuilder = new StringBuilder();
+            foreach (var (memberType, memberName) in memberInfos)
             {
-
+                stringBuilder.Append($"{memberType} {memberName}\r\n");
             }
 
-            public GreatClass(string record, int magicNumber)
+            return stringBuilder.Append("\r\n").ToString();
+        }
+
+        private static string FormatStaticMemberOutput(
+            IEnumerable<(string MemberType, string MemberName, string MemberValue)> memberInfos)
+        {
+            var stringBuilder = new StringBuilder();
+            foreach (var (memberType, memberName, memberValue) in memberInfos)
             {
-                Record = record;
-                MagicNumber = magicNumber;
+                stringBuilder.Append($"{memberType} {memberName}: {memberValue}\r\n");
             }
 
-            public GreatClass(int count, bool flag)
-            {
-                this.count = count;
-                this.flag = flag;
-            }
+            return stringBuilder.Append("\r\n").ToString();
+        }
 
-            public GreatClass(int count, bool flag, string record, int magicNumber)
-            {
-                this.count = count;
-                this.flag = flag;
-                Record = record;
-                MagicNumber = magicNumber;
-            }
+        private static string GetConstructorsInfo(Type type)
+        {
+            throw new NotImplementedException();
+        }
 
-            public void SetIntField(int number)
-            {
-                count = number;
-            }
+        private static (string MemberType, string MemberName)[] GetPropertiesInfo(Type type)
+        {
+            throw new NotImplementedException();
+        }
 
-            private void ResetRecord()
-            {
-                Record = null;
-            }
+        private static (string MemberType, string MemberName)[] GetFieldsInfo(Type type, BindingFlags scope)
+        {
+            throw new NotImplementedException();
+        }
 
-            public void SetCountField(int number)
-            {
-                throw new System.NotImplementedException();
-            }
+        private static (string MemberType, string MemberName, string MemberValue)[] GetStaticFieldsInfo(Type type, BindingFlags scope)
+        {
+            throw new NotImplementedException();
+        }
 
-            public void SetFlagField(bool flag)
-            {
-                throw new System.NotImplementedException();
-            }
+        private static (string MemberType, string MemberName)[] GetMethodsInfo(Type type, BindingFlags scope)
+        {
+            throw new NotImplementedException();
         }
     }
 }
